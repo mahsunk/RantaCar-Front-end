@@ -1,0 +1,61 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<!-- 
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let car of cars">
+        <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Araç Adı : {{car.carName}}</h5>
+                <p class="card-text">
+                    Araç Adı : {{car.carName}} <br>
+                    Marka Adı : {{car.brandName}} <br>
+                    Renk Adı : {{car.colorName}} <br>
+                    Günlük Fiyatı : {{car.dailyPrice}}
+
+                </p>
+                <a href="#" class="btn btn-primary btn-sm">Detay </a>
+                 
+            </div>
+        </div>
+    </div>
+
+    
+</div> -->
+
+ 
+<table *ngIf="dataLoaded==true" class="table table-success table-striped">
+    <thead>
+        <tr>
+            <th style="text-align: center;" colspan="5"> Araç Listesi</th>
+        </tr>
+        <tr>
+
+            <th>Araç Adı</th>
+            <th>Marka Adı</th>
+            <th>Renk Adı</th>
+            <th>Günlük Fiyatı</th>
+            <th>Detay</th>
+
+
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+
+        <tr *ngFor="let car of cars">
+
+            <td>{{car.carName}}</td>
+            <td>{{car.brandName}}</td>
+            <td>{{car.colorName}}</td>
+            <td>{{car.dailyPrice}}₺</td>
+            <td> <a routerLink="/cardetail/getAllByCarId/{{car.id}}" class="btn btn-primary btn-sm">Detay </a></td>
+
+
+        </tr>
+    </tbody>
+</table>  
