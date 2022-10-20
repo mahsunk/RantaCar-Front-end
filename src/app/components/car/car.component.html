@@ -2,6 +2,9 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
+<app-car-filter></app-car-filter>
+
+
 <!-- 
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col" *ngFor="let car of cars">
@@ -25,8 +28,14 @@
     
 </div> -->
 
- 
+
+<div class="mb-3">
+    <br>
+    <input type="text" [(ngModel)]="carFilterText" class="form-control " id="carFilterText" placeholder="Araç arayınız">
+</div>
+
 <table *ngIf="dataLoaded==true" class="table table-success table-striped">
+
     <thead>
         <tr>
             <th style="text-align: center;" colspan="5"> Araç Listesi</th>
@@ -47,7 +56,7 @@
     <tbody>
 
 
-        <tr *ngFor="let car of cars">
+        <tr *ngFor="let car of cars|carFilter:carFilterText">
 
             <td>{{car.carName}}</td>
             <td>{{car.brandName}}</td>
@@ -58,4 +67,4 @@
 
         </tr>
     </tbody>
-</table>  
+</table>

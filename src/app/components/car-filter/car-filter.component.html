@@ -1,0 +1,30 @@
+<div class="row g-2">
+    <div class="col-md">
+        <div class="form-floating">
+            <select  [(ngModel)]="brandFilter" class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                
+                <option *ngFor="let brand of brands"  selected="{{getSelectedBrand(brand.brandId)}}" value="{{brand.brandId}}">{{brand.brandName}}</option>
+              
+            </select>
+            <label for="floatingSelectGrid">Marka Seçimi</label>
+        </div>
+    </div>
+
+    <div class="col-md">
+        <div class="form-floating">
+            <select  [(ngModel)]="colorFilter"  class="form-select" id="sa" aria-label="Floating label select example">
+                 
+                <option  *ngFor="let color of colors"   [selected]="getSelectedColor(color.colorId)"  value="{{color.colorId}}">{{color.colorName}}</option>
+                
+            </select>
+            <label for="floatingSelectGrid">Renk Seçimi</label>
+        </div>
+    </div>
+
+</div>
+
+<div class="bd-example mt-3">
+
+    <button type="button"   routerLink="/cars/filter/{{brandFilter}}/{{colorFilter}}" class="btn btn-primary btn-sm  ">Filtrele</button>
+    <button style="margin-left: 10px;" type="button"  routerLink="/cars"  class="btn btn-danger btn-sm ">Temizle</button>
+</div>
